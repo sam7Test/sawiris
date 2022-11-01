@@ -12,12 +12,16 @@ if(window.navigator && window.navigator.canShare){
             onclone: function (doc) {
                 const receiptToShare = doc.querySelector('.receipt-wrapper');
                 receiptToShare.querySelector('.share-btn').remove();
-                receiptToShare.querySelector('.receipt-title').textContent = "ساويرس";
+                receiptToShare.querySelector('.receipt-title').textContent="ساويرس";
                 const receiptImage = document.createElement('img');
                 receiptImage.crossOrigin = "Anonymous";
-                receiptImage.src = "../images/01.jpg";
-                receiptToShare.insertBefore(receiptImage, receiptToShare.firstChild);
 
+                receiptImage.src = "https://sam7test.github.io/sawiris/images/logo.jpeg"; 
+                //set receiptImage width
+                receiptImage.style.width = '50%%';
+                receiptImage.style.height = '90px'                               
+                receiptToShare.insertBefore(receiptImage,receiptToShare.firstChild);
+            
             }
             , allowTaint: false, useCORS: true
         }).then(canvas => {
