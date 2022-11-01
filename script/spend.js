@@ -8,10 +8,23 @@ if(window.navigator && window.navigator.canShare){
     shareBtn.style.visibility = "visible"
     shareBtn.addEventListener('click',function getReceiptImage(e) {
         e.preventDefault();
-        html2canvas(document.querySelector(".receipt-wrapper")).then(function (canvas) {
+        html2canvas(document.querySelector('.receipt-wrapper'), {
+            onclone: function (doc) {
+                const receiptToShare = doc.querySelector('.receipt-wrapper');
+                receiptToShare.querySelector('.share-btn').remove();
+                receiptToShare.querySelector('.receipt-title').textContent = "ساويرس";
+                const receiptImage = document.createElement('img');
+                receiptImage.crossOrigin = "Anonymous";
+                receiptImage.src = "../images/01.jpg";
+                receiptToShare.insertBefore(receiptImage, receiptToShare.firstChild);
+
+            }
+            , allowTaint: false, useCORS: true
+        }).then(canvas => {
             let receiptImage = canvas.toDataURL('image/png', 0.4);
             share(receiptImage);
-        })});
+        })
+    });
 }
 
 getData().forEach(function (item) {
