@@ -23,7 +23,7 @@ if(window.navigator && window.navigator.canShare){
                 receiptToShare.insertBefore(receiptImage,receiptToShare.firstChild);
             
             }
-            , allowTaint: false, useCORS: true
+            , proxy:"https://sam7test.github.io/sawiris/images/logo.jpeg",allowTaint: false, useCORS: true
         }).then(canvas => {
             let receiptImage = canvas.toDataURL('image/png', 0.4);
             share(receiptImage);
