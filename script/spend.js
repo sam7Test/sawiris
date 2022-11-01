@@ -14,16 +14,16 @@ if(window.navigator && window.navigator.canShare){
                 receiptToShare.querySelector('.share-btn').remove();
                 receiptToShare.querySelector('.receipt-title').textContent="ساويرس";
                 const receiptImage = document.createElement('img');
-                receiptImage.crossOrigin = "Anonymous";
+               // receiptImage.crossOrigin = "Anonymous";
 
-                receiptImage.src = "https://sam7test.github.io/sawiris/images/logo.jpeg"; 
+                receiptImage.src = "../images/logo.jpeg"; 
                 //set receiptImage width
                 receiptImage.style.width = '50%%';
                 receiptImage.style.height = '90px'                               
                 receiptToShare.insertBefore(receiptImage,receiptToShare.firstChild);
             
             }
-            , proxy:"https://sam7test.github.io/sawiris/images/logo.jpeg",allowTaint: true, useCORS: false
+            , allowTaint: false, useCORS: true, scale: 1, logging: true
         }).then(canvas => {
             let receiptImage = canvas.toDataURL('image/png', 0.4);
             share(receiptImage);
