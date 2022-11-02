@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background: #f1f2f6;
+    background: #929ba5;
     margin: 0;
     padding: 0;
 }
@@ -99,9 +99,8 @@ body {
 }
 
 .money-bar {
-    color: #fff;
-    background-color: #2ecc71;
-    background: linear-gradient(180deg, #2ecc71, #1abc9c);
+    color: #000;
+    background: linear-gradient(#ffcc00, #ffb000);
     padding: 20px;
     margin: 10px 0;
     font-size: 32px;
@@ -173,7 +172,7 @@ body {
 
 .item-cost {
     font-size: 20px;
-    color: #24c486;
+    color: #c90000;
 }
 
 .item-controls {
@@ -184,13 +183,17 @@ body {
 }
 
 .item-sell {
-    margin: 0;
-    font-size: 16px;
-    text-align: center;
-    padding: 10px 12px;
-    border-radius: 3px;
-    font-weight: 700;
-    user-select: none;
+font-size: 16px;
+text-align: center;
+cursor: pointer;
+padding: 10px 12px;
+border-radius: 3px;
+color: #fff;
+border: none;
+font-weight: 700;
+user-select: none;
+touch-action: manipulation;
+font-family: "Cairo";
     background: #f1f2f6 !important;
     border: none;
     color: #333;
@@ -222,7 +225,7 @@ body {
     user-select: none;
     touch-action: manipulation;
     font-family: "Cairo";
-    background: linear-gradient(rgb(245, 59, 130), rgb(245, 59, 87))
+    background: linear-gradient(#c90000, #a30000)
 }
 
 .item-buy {
@@ -231,13 +234,13 @@ body {
     cursor: pointer;
     padding: 10px 12px;
     border-radius: 3px;
-    color: #fff;
+    color: #000;
     border: none;
     font-weight: 700;
     user-select: none;
     touch-action: manipulation;
     font-family: "Cairo";
-    background: linear-gradient(180deg, #2ecc71, #1abc9c);
+    background: linear-gradient(#ffcc00, #ffb000);
 }
 
 .receipt-wrapper {
@@ -288,12 +291,12 @@ body {
 }
 
 .receipt-item-cost {
-    color: #24c486;
+    color: #c90000;
     text-align: left;
 }
 
 .receipt-total-money {
-    color: #24c486;
+    color: #c90000;
     text-align: start;
 }
 
