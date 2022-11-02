@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Sawiris</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <!-- Primary Meta Tags -->
+    <title>Sawiris</title>
+    <meta name="title" content="Sawiris">
+    <meta name="description" content="Dream you got Sawiris money!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sam7test.github.io/sawiris/pages/spend.html">
+    <meta property="og:title" content="Sawiris">
+    <meta property="og:description" content="Dream you got Sawiris money!">
+    <meta property="og:image" content="https://sam7test.github.io/sawiris/images/logo.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sam7test.github.io/sawiris/pages/spend.html">
+    <meta property="twitter:title" content="Sawiris">
+    <meta property="twitter:description" content="Dream you got Sawiris money!">
+    <meta property="twitter:image" content="https://sam7test.github.io/sawiris/images/logo.jpeg">
 
 </head>
 
@@ -28,11 +46,15 @@
         <div class="items"></div>
         <div class="receipt-wrapper">
             <button class="share-btn"><i class="fa fa-share-alt" style="font-size:24px; color:blue;"></i></button>
+            <button onClick="shareToFacebook()">Facebook</button>
+            <button onClick="shareToTwitter()">Twitter</button>
+
             <div class="receipt-title">الفاتورة</div>
             <div class="receipt-list"></div>
-            
+
         </div>
-        <script src="../script/html2canvas.min.js"/></script>
+        <script src="../script/html2canvas.min.js" />
+        </script>
         <script src="../script/data.js"></script>
         <script src="../script/spend.js"></script>
 

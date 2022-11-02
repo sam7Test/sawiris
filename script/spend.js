@@ -198,8 +198,18 @@ async function share(receiptImage) {
         console.error("Share failed:", err.message);
     }
 };
-
-
+//share to social facebook
+function shareToFacebook() {
+    var url = 'https://www.facebook.com/sharer/sharer.php?u='+
+     encodeURIComponent('https://sam7test.github.io/sawiris/pages/spend.html');
+    window.open(url, '_blank');
+}
+//share to social twitter
+function shareToTwitter() {
+    var url = 'https://twitter.com/intent/tweet?text='+
+        encodeURIComponent('hhttps://sam7test.github.io/sawiris/pages/spend.html');
+    window.open(url, '_blank');
+}
     // Add method to prototype. this allows you to use this function on numbers and strings directly
     Number.prototype.commarize = commarize
     String.prototype.commarize = commarize
