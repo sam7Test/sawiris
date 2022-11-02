@@ -7,7 +7,7 @@ html {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     color: #000;
-    font-family: "Cairo",Roboto, sans-serif;
+    font-family: "Cairo", Roboto, sans-serif;
 }
 
 *,
@@ -36,37 +36,37 @@ body {
     height: 94px;
     background-color: #fff;
     margin-bottom: 25px;
-    display: flex;
-    align-items: center;
+    align-items: center;    
 }
 
 .header-inner {
     font-size: 30px;
     font-weight: 700;
-    box-sizing: border-box;
     margin: 0;
-    display: flex;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
     padding: 0 0 0 14px;
     width: 100%;
     max-width: 1000px;
+    justify-content: center;
+    display: block;
 }
 
 .header-site-link {
-    max-width: 124px;
+    max-width: 100%;
+    align-content: center;
+    justify-content: center;
+    display: block;
+    max-height: 90px;
 }
 
 .header-link {
-    word-spacing: 1px;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    font-size: 30px;
-    font-weight: 700;
-    box-sizing: border-box;
     margin: 0;
-    max-width: 124px;
+    max-width: 100%;
+    display: block;
+    align-content: center;
+    max-height: 90px;
 }
 
 .container {
@@ -207,6 +207,7 @@ body {
     appearance: none;
     font-size: 16px;
     text-align: center;
+    font-family: "Cairo";
 }
 
 .sell-btn {
@@ -220,6 +221,7 @@ body {
     font-weight: 700;
     user-select: none;
     touch-action: manipulation;
+    font-family: "Cairo";
     background: linear-gradient(rgb(245, 59, 130), rgb(245, 59, 87))
 }
 
@@ -234,6 +236,7 @@ body {
     font-weight: 700;
     user-select: none;
     touch-action: manipulation;
+    font-family: "Cairo";
     background: linear-gradient(180deg, #2ecc71, #1abc9c);
 }
 
@@ -315,20 +318,19 @@ body {
     margin-right: auto;
     text-align: center;
     justify-content: center;
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(4,1fr);
-
 }
-.share-icon{
+
+.share-icon {
     width: 40px;
     height: 40px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin: 0px 10px 0px 10px;
     transition: all 0.3s ease;
 }
-.share-icon:hover{
+
+.share-icon:hover {
     transform: scale(1.1);
 }
 
