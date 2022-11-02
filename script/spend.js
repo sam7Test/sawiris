@@ -3,25 +3,25 @@ const wealth = 78650490162;
 
 document.querySelector('.money-bar').textContent = getWealth().toLocaleString("en-US");
 const grid = document.querySelector('.items');
-if(window.navigator && window.navigator.canShare){
+if (window.navigator && window.navigator.canShare) {
     const shareBtn = document.querySelector('.share-btn');
     shareBtn.style.visibility = "visible"
-    shareBtn.addEventListener('click',function getReceiptImage(e) {
+    shareBtn.addEventListener('click', function getReceiptImage(e) {
         e.preventDefault();
         html2canvas(document.querySelector('.receipt-wrapper'), {
             onclone: function (doc) {
                 const receiptToShare = doc.querySelector('.receipt-wrapper');
                 receiptToShare.querySelector('.share-btn').remove();
-                receiptToShare.querySelector('.receipt-title').textContent="ساويرس";
+                receiptToShare.querySelector('.receipt-title').textContent = "ساويرس";
                 const receiptImage = document.createElement('img');
-               // receiptImage.crossOrigin = "Anonymous";
+                // receiptImage.crossOrigin = "Anonymous";
 
-                receiptImage.src = "../images/logo.jpeg"; 
+                receiptImage.src = "../images/logo.jpeg";
                 //set receiptImage width
                 receiptImage.style.width = '50%%';
-                receiptImage.style.height = '90px'                               
-                receiptToShare.insertBefore(receiptImage,receiptToShare.firstChild);
-            
+                receiptImage.style.height = '90px'
+                receiptToShare.insertBefore(receiptImage, receiptToShare.firstChild);
+
             }
             , allowTaint: false, useCORS: true
         }).then(canvas => {
@@ -204,24 +204,20 @@ const shareArea = document.querySelector('.share-area');
 shareArea.addEventListener('click', (event) => {
     let url = "";
     switch (event.target.classList[0]) {
-        case "facebook-btn":url='https://www.facebook.com/sharer/sharer.php?u='
-        break;
-        case "twitter-btn":url='https://twitter.com/intent/tweet?text='
-        break;
-        case "whatsapp-btn":url='https://api.whatsapp.com/send?text='
-        break;
-        case"telegram-btn":url='https://telegram.me/share/url?url='
-        break;
-        case "email-btn":url='mailto:?subject=انا صرفت فلوس ساويرس&body='
-        break;
-        case"instagram-btn":url='https://www.instagram.com/?url='
-        break;
-        default: url="https://www.facebook.com/sharer/sharer.php?u=";        
-        
+        case "facebook-btn": url = 'https://www.facebook.com/sharer/sharer.php?u='
+            break;
+        case "twitter-btn": url = 'https://twitter.com/intent/tweet?text='
+            break;
+        case "whatsapp-btn": url = 'https://api.whatsapp.com/send?text='
+            break;
+        case "telegram-btn": url = 'https://telegram.me/share/url?url='
+            break;       
+        default: url = "https://www.facebook.com/sharer/sharer.php?u=";
+
     }
     url += encodeURIComponent('https://sam7test.github.io/sawiris/pages/spend.html');
     window.open(url, '_blank');
 })
-    // Add method to prototype. this allows you to use this function on numbers and strings directly
-    Number.prototype.commarize = commarize
-    String.prototype.commarize = commarize
+// Add method to prototype. this allows you to use this function on numbers and strings directly
+Number.prototype.commarize = commarize
+String.prototype.commarize = commarize

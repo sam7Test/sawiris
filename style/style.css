@@ -212,8 +212,6 @@ body {
     text-align: center;
 }
 
-
-
 .sell-btn {
     font-size: 16px;
     text-align: center;
@@ -259,7 +257,6 @@ body {
     display: grid;
     grid-gap: 10px 0;
     font-size: 18px;
-    
     grid-template-columns: 75px 45px 170px;
 }
 
@@ -274,48 +271,59 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.receipt-title{
+
+.receipt-title {
     font-size: 28px;
     padding: 15px 15px 25px;
     font-weight: 700;
 }
-.receipt-item-name{
+
+.receipt-item-name {
     text-align: right;
     text-overflow: ellipsis;
 }
-.receipt-item-amount{
+
+.receipt-item-amount {
     text-align: right;
 }
-.receipt-item-cost{
+
+.receipt-item-cost {
     color: #24c486;
     text-align: left;
 }
-.receipt-total-money{
+
+.receipt-total-money {
     color: #24c486;
     text-align: start;
 }
 
 .share-btn {
-    background-color: #fff; 
-    border: none; 
-    color: white; 
-    padding: 2px 4px; 
-    font-size: 16px; 
-    cursor: pointer; 
+    background-color: #fff;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    font-size: 16px;
+    cursor: pointer;
     visibility: hidden;
-  }
-  
-  
-  .share-btn:hover {
+}
+
+
+.share-btn:hover {
     background-color: grey;
-  }
-  .share-area{
-    display: flex;
+}
+
+.share-area {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    justify-content: space-between;
-  }
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(4,1fr);
+
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
