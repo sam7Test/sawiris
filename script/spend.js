@@ -198,18 +198,30 @@ async function share(receiptImage) {
         console.error("Share failed:", err.message);
     }
 };
-//share to social facebook
-function shareToFacebook() {
-    var url = 'https://www.facebook.com/sharer/sharer.php?u='+
-     encodeURIComponent('https://sam7test.github.io/sawiris/pages/spend.html');
+
+
+const shareArea = document.querySelector('.share-area');
+shareArea.addEventListener('click', (event) => {
+    let url = "";
+    switch (event.target.classList[0]) {
+        case "facebook-btn":url='https://www.facebook.com/sharer/sharer.php?u='
+        break;
+        case "twitter-btn":url='https://twitter.com/intent/tweet?text='
+        break;
+        case "whatsapp-btn":url='https://api.whatsapp.com/send?text='
+        break;
+        case"telegram-btn":url='https://telegram.me/share/url?url='
+        break;
+        case "email-btn":url='mailto:?subject=انا صرفت فلوس ساويرس&body='
+        break;
+        case"instagram-btn":url='https://www.instagram.com/?url='
+        break;
+        default: url="https://www.facebook.com/sharer/sharer.php?u=";        
+        
+    }
+    url += encodeURIComponent('https://sam7test.github.io/sawiris/pages/spend.html');
     window.open(url, '_blank');
-}
-//share to social twitter
-function shareToTwitter() {
-    var url = 'https://twitter.com/intent/tweet?text='+
-        encodeURIComponent('https://sam7test.github.io/sawiris/pages/spend.html');
-    window.open(url, '_blank');
-}
+})
     // Add method to prototype. this allows you to use this function on numbers and strings directly
     Number.prototype.commarize = commarize
     String.prototype.commarize = commarize

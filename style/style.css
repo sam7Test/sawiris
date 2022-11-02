@@ -155,15 +155,6 @@ body {
     width: 100%;
 }
 
-.item-controlls {
-    word-spacing: 1px;
-    font-size: 20px;
-    font-weight: 700;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px 10px;
-    margin-top: 25px;
-}
 
 .item-img {
     display: block;
@@ -317,6 +308,13 @@ body {
   
   .share-btn:hover {
     background-color: grey;
+  }
+  .share-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
   }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
