@@ -7,7 +7,7 @@ html {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     color: #000;
-    font-family: Roboto, sans-serif;
+    font-family: "Cairo",Roboto, sans-serif;
 }
 
 *,
@@ -19,7 +19,6 @@ html {
 
 body {
     background: #f1f2f6;
-    font-family: OpenSans, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -63,7 +62,6 @@ body {
     word-spacing: 1px;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
-    font-family: Roboto, sans-serif;
     font-size: 30px;
     font-weight: 700;
     box-sizing: border-box;
@@ -106,7 +104,6 @@ body {
     background: linear-gradient(180deg, #2ecc71, #1abc9c);
     padding: 20px;
     margin: 10px 0;
-    font-family: Roboto, sans-serif;
     font-size: 32px;
     font-weight: 700;
     text-align: center;
