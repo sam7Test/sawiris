@@ -192,7 +192,7 @@ async function share(receiptImage) {
             title: "انا صرفت فلوس ساويرس",
             files: [file],
             text: "صرفت فلوس ساويرس",
-            url:"https://sam7muhammad.github.io/sawiris/pages/spend.html"
+            url: location.href
         });
     } catch (err) {
         console.error("Share failed:", err.message);
