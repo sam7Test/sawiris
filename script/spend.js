@@ -1,7 +1,7 @@
 let data = getData();
 const wealth = 78650490162;
 
-document.querySelector('.money-bar').textContent = getWealth().toLocaleString("en-US");
+document.querySelector('.money-bar').textContent = `${getWealth().toLocaleString("en-US")} جنيه`;
 const grid = document.querySelector('.items');
 /**share receipt manipulated html2canvas */
 /*
@@ -39,7 +39,7 @@ getData().forEach(function (item) {
     gridItem.innerHTML =
         `<img class="item-img" src="${item.img}">
     <div class="item-name">${item.item}</div>
-    <div class="item-cost">${(item.price).toLocaleString("en-us")}</div>
+    <div class="item-cost"> ${(item.price).toLocaleString("en-us")} جنيه</div>
     <div class="item-controls">
         <button class="item-buy">شراء</button>
         <input type="number" class="item-input" value ='0' min='0'>
@@ -152,7 +152,7 @@ function buyMore(totalMoney, oldValue, newValue, cost, item, inputValue) {
         totalMoney -= addedItems * cost;
         inputValue.value = newValue;
     }
-    document.querySelector('.money-bar').textContent = totalMoney.toLocaleString("en-us");
+    document.querySelector('.money-bar').textContent = ` جنيه ${totalMoney.toLocaleString("en-us")} جنيه`;
     oldValue = newValue;
     updateItem(newValue, item);
 
@@ -163,7 +163,7 @@ function getWealth() {
     data.forEach(element => {
         expneses += element.price * element.boughtItems;
     });
-    document.querySelector('.money-bar').textContent = (wealth - expneses).toLocaleString("en-us");
+    document.querySelector('.money-bar').textContent = `${(wealth - expneses).toLocaleString("en-us")} جنيه`;
     setReceipt(expneses);
     return wealth - expneses;
 }
