@@ -3,6 +3,8 @@ const wealth = 78650490162;
 
 document.querySelector('.money-bar').textContent = getWealth().toLocaleString("en-US");
 const grid = document.querySelector('.items');
+/**share receipt manipulated html2canvas */
+/*
 if (window.navigator && window.navigator.canShare) {
     const shareBtn = document.querySelector('.share-btn');
     shareBtn.style.visibility = "visible"
@@ -29,7 +31,7 @@ if (window.navigator && window.navigator.canShare) {
             share(receiptImage);
         })
     });
-}
+}*/
 
 getData().forEach(function (item) {
     const gridItem = document.createElement('div');
@@ -41,7 +43,7 @@ getData().forEach(function (item) {
     <div class="item-controls">
         <button class="item-buy">شراء</button>
         <input type="number" class="item-input" value ='0' min='0'>
-        <button disabled="disabled" class="item-sell">بيع</button>                    
+        <button disabled="disabled" class="sell-btn">بيع</button>                    
         `
     grid.appendChild(gridItem);
 
@@ -61,6 +63,18 @@ grid.addEventListener('click', function (event) {
         toggleSellBtn(itemConterller, item.boughtItems);
     }
 })
+//if input value onfocus and value is 0 then setvalue to empty
+grid.addEventListener('focusin', function (event) {
+    if (event.target.classList.contains('item-input') && event.target.value == 0) {
+        event.target.value = '';
+    }
+})
+//if input value onblur and value is empty then setvalue to 0
+grid.addEventListener('focusout', function (event) {
+    if (event.target.classList.contains('item-input') && event.target.value == '') {
+        event.target.value = 0;
+    }
+})
 
 //change number of items 
 grid.addEventListener('input', function (event) {
@@ -71,7 +85,7 @@ grid.addEventListener('input', function (event) {
 
 function inputChange(itemConterller, inputValue) {
     let itemName = itemConterller.parentElement.querySelector('.item-name').innerText;
-    let newValue = Number(inputValue.value)
+    let newValue = Number(inputValue.value);
     let item = getItemByName(itemName)[0];
     if (newValue > item.boughtItems) {
         buyMore(getWealth(), item.boughtItems, newValue, item.price, item, inputValue);
@@ -91,27 +105,31 @@ function updateItem(newItems, item) {
         }
     });
     getWealth();
+    disableBuyBtn();
 }
+function disableBuyBtn() {
+    const items = document.querySelectorAll('.item-wrapper');
+    const wealth = getWealth();
+    data.forEach(function (item) {
+        const itemController = items[data.indexOf(item)].querySelector('.item-controls');
+        if (item.price>wealth) {
+            itemController.querySelector('.item-buy').disabled = true;
+        }
+        else {
+            itemController.querySelector('.item-buy').disabled = false;
+        }
+    })}
+    
 
 function toggleSellBtn(itemConterller, newValue) {
-    let sellBtn;
-    if (itemConterller.querySelector('.sell-btn')) {
-        sellBtn = itemConterller.querySelector('.sell-btn');
-    }
-    else {
-        sellBtn = itemConterller.querySelector('.item-sell');
-    }
-
-    if (newValue > 0) {
-        sellBtn.disabled = false;
-        sellBtn.classList.add('sell-btn');
-        sellBtn.classList.remove('item-sell');
+    let sellBtn=itemConterller.querySelector('.sell-btn');
+    //diable sell button if value is 0
+    if (newValue == 0) {
+        sellBtn.disabled = true;
     }
     else {
         sellBtn.disabled = false;
-        sellBtn.classList.add('item-sell');
-        sellBtn.classList.remove('sell-btn');
-    }
+    }   
 }
 
 function getItemByName(itemName) {
@@ -139,6 +157,7 @@ function buyMore(totalMoney, oldValue, newValue, cost, item, inputValue) {
     updateItem(newValue, item);
 
 }
+
 function getWealth() {
     let expneses = 0;
     data.forEach(element => {
@@ -184,6 +203,8 @@ function commarize() {
     // return formatted original number
     return this.toLocaleString();
 }
+/**share using device apis */
+/*
 async function share(receiptImage) {
     const blob = await (await fetch(receiptImage)).blob();
     const file = new File([blob], "sawiris.png", { type: blob.type });
@@ -197,9 +218,9 @@ async function share(receiptImage) {
     } catch (err) {
         console.error("Share failed:", err.message);
     }
-};
+};*/
 
-
+//
 const shareArea = document.querySelector('.share-area');
 shareArea.addEventListener('click', (event) => {
     let url = "";
@@ -211,7 +232,7 @@ shareArea.addEventListener('click', (event) => {
         case "whatsapp-btn": url = 'https://api.whatsapp.com/send?text='
             break;
         case "telegram-btn": url = 'https://telegram.me/share/url?url='
-            break;       
+            break;
         default: url = "https://www.facebook.com/sharer/sharer.php?u=";
 
     }
