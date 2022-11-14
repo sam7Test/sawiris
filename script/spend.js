@@ -1,11 +1,10 @@
-let data = getData();
+const data = getData();
 const wealth = 78650490162;
 
 document.querySelector('.money-bar').textContent = `${getWealth().toLocaleString("en-US")} جنيه`;
 const grid = document.querySelector('.items');
 
-
-getData().forEach(function (item) {
+data.forEach(function (item) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('item-wrapper');
     gridItem.innerHTML =
