@@ -3,41 +3,13 @@ const wealth = 78650490162;
 
 document.querySelector('.money-bar').textContent = `${getWealth().toLocaleString("en-US")} جنيه`;
 const grid = document.querySelector('.items');
-/**share receipt manipulated html2canvas */
-/*
-if (window.navigator && window.navigator.canShare) {
-    const shareBtn = document.querySelector('.share-btn');
-    shareBtn.style.visibility = "visible"
-    shareBtn.addEventListener('click', function getReceiptImage(e) {
-        e.preventDefault();
-        html2canvas(document.querySelector('.receipt-wrapper'), {
-            onclone: function (doc) {
-                const receiptToShare = doc.querySelector('.receipt-wrapper');
-                receiptToShare.querySelector('.share-btn').remove();
-                receiptToShare.querySelector('.receipt-title').textContent = "ساويرس";
-                const receiptImage = document.createElement('img');
-                // receiptImage.crossOrigin = "Anonymous";
 
-                receiptImage.src = "../images/logo.jpeg";
-                //set receiptImage width
-                receiptImage.style.width = '50%%';
-                receiptImage.style.height = '90px'
-                receiptToShare.insertBefore(receiptImage, receiptToShare.firstChild);
-
-            }
-            , allowTaint: false, useCORS: true
-        }).then(canvas => {
-            let receiptImage = canvas.toDataURL('image/png', 0.4);
-            share(receiptImage);
-        })
-    });
-}*/
 
 getData().forEach(function (item) {
     const gridItem = document.createElement('div');
     gridItem.classList.add('item-wrapper');
     gridItem.innerHTML =
-        `<img class="item-img" src="${item.img}">
+        `<img class="item-img" src="${item.img}" alt="${item.item}">
     <div class="item-name">${item.item}</div>
     <div class="item-cost"> ${(item.price).toLocaleString("en-us")} جنيه</div>
     <div class="item-controls">
@@ -112,24 +84,25 @@ function disableBuyBtn() {
     const wealth = getWealth();
     data.forEach(function (item) {
         const itemController = items[data.indexOf(item)].querySelector('.item-controls');
-        if (item.price>wealth) {
+        if (item.price > wealth) {
             itemController.querySelector('.item-buy').disabled = true;
         }
         else {
             itemController.querySelector('.item-buy').disabled = false;
         }
-    })}
-    
+    })
+}
+
 
 function toggleSellBtn(itemConterller, newValue) {
-    let sellBtn=itemConterller.querySelector('.sell-btn');
+    let sellBtn = itemConterller.querySelector('.sell-btn');
     //diable sell button if value is 0
     if (newValue == 0) {
         sellBtn.disabled = true;
     }
     else {
         sellBtn.disabled = false;
-    }   
+    }
 }
 
 function getItemByName(itemName) {
@@ -152,7 +125,6 @@ function buyMore(totalMoney, oldValue, newValue, cost, item, inputValue) {
         totalMoney -= addedItems * cost;
         inputValue.value = newValue;
     }
-    document.querySelector('.money-bar').textContent = ` جنيه ${totalMoney.toLocaleString("en-us")} جنيه`;
     oldValue = newValue;
     updateItem(newValue, item);
 
@@ -203,22 +175,6 @@ function commarize() {
     // return formatted original number
     return this.toLocaleString();
 }
-/**share using device apis */
-/*
-async function share(receiptImage) {
-    const blob = await (await fetch(receiptImage)).blob();
-    const file = new File([blob], "sawiris.png", { type: blob.type });
-    try {
-        await navigator.share({
-            title: "انا صرفت فلوس ساويرس",
-            files: [file],
-            text: "صرفت فلوس ساويرس",
-            url: location.href
-        });
-    } catch (err) {
-        console.error("Share failed:", err.message);
-    }
-};*/
 
 //
 const shareArea = document.querySelector('.share-area');
@@ -236,7 +192,7 @@ shareArea.addEventListener('click', (event) => {
         default: url = "https://www.facebook.com/sharer/sharer.php?u=";
 
     }
-    url += encodeURIComponent('http://qhwa.fun');
+    url += encodeURIComponent('https://qhwa.fun');
     window.open(url, '_blank');
 })
 // Add method to prototype. this allows you to use this function on numbers and strings directly
